@@ -10,9 +10,16 @@
     <!-- Главный заголовок -->
     <h1 style="font-size: 48px; letter-spacing: 5px; margin-bottom: 10px;">NEXORA</h1>
     <p style="color: #888888; letter-spacing: 3px; text-transform: uppercase; font-size: 14px;">Create. Build. Grow.</p>
-    <p style="color: #cccccc; max-width: 520px; margin: 20px auto 50px auto; line-height: 1.6;">
+    <p style="color: #cccccc; max-width: 520px; margin: 20px auto 30px auto; line-height: 1.6;">
         Цифровая студия нового поколения. Объединяем искусственный интеллект и креатив для создания видео, дизайна и сайтов.
     </p>
+
+    <!-- Кнопка быстрой связи в Telegram -->
+    <div style="margin-bottom: 50px;">
+        <a href="https://t.me/naturalas" target="_blank" style="display: inline-block; background-color: #229ED9; color: white; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: bold; font-size: 14px; letter-spacing: 0.5px;">
+            Написать в Telegram (@naturalas)
+        </a>
+    </div>
 
     <!-- Блок с услугами -->
     <h2 style="margin-bottom: 30px; font-weight: normal; letter-spacing: 1px;">Услуги студии</h2>
@@ -45,6 +52,8 @@
             <!-- Ключ доступа Web3Forms -->
             <input type="hidden" name="access_key" value="205599">
             <input type="hidden" name="subject" value="Новая заявка с сайта NEXORA!">
+            <!-- Фиксированный твой телеграм для писем -->
+            <input type="hidden" name="studio_telegram" value="@naturalas">
 
             <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Выберите услугу:</label>
             <select name="service" style="width: 100%; padding: 12px; background-color: #0b0b0b; color: white; border: 1px solid #333; border-radius: 5px; margin-bottom: 18px; font-size: 14px;">
@@ -53,8 +62,8 @@
                 <option value="Создание сайта">Создание минималистичного сайта</option>
             </select>
 
-            <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Ваш Telegram или Email:</label>
-            <input type="text" name="contact" required placeholder="@username или email" style="width: 100%; padding: 12px; background-color: #0b0b0b; color: white; border: 1px solid #333; border-radius: 5px; margin-bottom: 18px; box-sizing: border-box; font-size: 14px;">
+            <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Ваш Telegram или Email для связи:</label>
+            <input type="text" name="client_contact" required placeholder="@username или email" style="width: 100%; padding: 12px; background-color: #0b0b0b; color: white; border: 1px solid #333; border-radius: 5px; margin-bottom: 18px; box-sizing: border-box; font-size: 14px;">
 
             <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Кратко опишите задачу:</label>
             <textarea name="details" rows="3" required placeholder="Например: нужно смонтировать 3 ролика в стиле минимализм..." style="width: 100%; padding: 12px; background-color: #0b0b0b; color: white; border: 1px solid #333; border-radius: 5px; margin-bottom: 20px; box-sizing: border-box; font-family: Arial; font-size: 14px;"></textarea>
@@ -118,4 +127,3 @@
 
 </body>
 </html>
-
