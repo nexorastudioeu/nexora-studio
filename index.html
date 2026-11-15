@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA — AI Digital Creative Studio</title>
+</head>
+<body style="background-color: #0b0b0b; color: white; font-family: Arial, sans-serif; text-align: center; padding: 40px 20px; margin: 0;">
+
+    <!-- Главный заголовок -->
+    <h1 style="font-size: 48px; letter-spacing: 5px; margin-bottom: 10px;">NEXORA</h1>
+    <p style="color: #888888; letter-spacing: 3px; text-transform: uppercase; font-size: 14px;">Create. Build. Grow.</p>
+    <p style="color: #cccccc; max-width: 520px; margin: 20px auto 50px auto; line-height: 1.6;">
+        Цифровая студия нового поколения. Объединяем искусственный интеллект и креатив для создания видео, дизайна и сайтов.
+    </p>
+
+    <!-- Блок с услугами -->
+    <h2 style="margin-bottom: 30px; font-weight: normal; letter-spacing: 1px;">Услуги студии</h2>
+
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 70px;">
+        
+        <div style="background-color: #141414; border: 1px solid #2a2a2a; padding: 25px; width: 260px; border-radius: 8px; text-align: left;">
+            <h3 style="margin-top: 0;">AI-Монтаж видео</h3>
+            <p style="color: #999; font-size: 14px; line-height: 1.5;">Динамичные ролики, субтитры и эффекты для Shorts, Reels и TikTok.</p>
+        </div>
+
+        <div style="background-color: #141414; border: 1px solid #2a2a2a; padding: 25px; width: 260px; border-radius: 8px; text-align: left;">
+            <h3 style="margin-top: 0;">Дизайн и обложки</h3>
+            <p style="color: #999; font-size: 14px; line-height: 1.5;">Кликабельные превью, логотипы и упаковка социальных сетей.</p>
+        </div>
+
+        <div style="background-color: #141414; border: 1px solid #2a2a2a; padding: 25px; width: 260px; border-radius: 8px; text-align: left;">
+            <h3 style="margin-top: 0;">Создание сайтов</h3>
+            <p style="color: #999; font-size: 14px; line-height: 1.5;">Минималистичные и быстрые сайты-визитки под ключ.</p>
+        </div>
+
+    </div>
+
+    <!-- Интерактивная форма заказа -->
+    <div style="background-color: #141414; border: 1px solid #2a2a2a; padding: 35px 25px; max-width: 450px; margin: 0 auto; border-radius: 10px; text-align: left;">
+        <h2 style="margin-top: 0; text-align: center; font-size: 22px;">Запустить проект</h2>
+        <p style="color: #888; text-align: center; font-size: 14px; margin-bottom: 25px;">Выберите услугу — мы подготовим решение с помощью наших инструментов.</p>
+
+        <form id="orderForm">
+            <!-- Ключ доступа Web3Forms -->
+            <input type="hidden" name="access_key" value="205599">
+            <input type="hidden" name="subject" value="Новая заявка с сайта NEXORA!">
+
+            <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Выберите услугу:</label>
+            <select name="service" style="width: 100%; padding: 12px; background-color: #0b0b0b; color: white; border: 1px solid #333; border-radius: 5px; margin-bottom: 18px; font-size: 14px;">
+                <option value="AI-Монтаж видео">AI-Монтаж видео (Shorts / Reels)</option>
+                <option value="Дизайн и обложки">Дизайн и обложки</option>
+                <option value="Создание сайта">Создание минималистичного сайта</option>
+            </select>
+
+            <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Ваш Telegram или Email:</label>
+            <input type="text" name="contact" required placeholder="@username или email" style="width: 100%; padding: 12px; background-color: #0b0b0b; color: white; border: 1px solid #333; border-radius: 5px; margin-bottom: 18px; box-sizing: border-box; font-size: 14px;">
+
+            <label style="display: block; font-size: 13px; color: #aaa; margin-bottom: 6px;">Кратко опишите задачу:</label>
+            <textarea name="details" rows="3" required placeholder="Например: нужно смонтировать 3 ролика в стиле минимализм..." style="width: 100%; padding: 12px; background-color: #0b0b0b; color: white; border: 1px solid #333; border-radius: 5px; margin-bottom: 20px; box-sizing: border-box; font-family: Arial; font-size: 14px;"></textarea>
+
+            <button type="submit" id="submitBtn" style="width: 100%; background-color: white; color: black; border: none; padding: 14px; font-size: 15px; font-weight: bold; border-radius: 5px; cursor: pointer;">
+                Отправить заявку
+            </button>
+        </form>
+
+        <!-- Сообщение после отправки -->
+        <p id="statusMessage" style="display: none; font-size: 14px; text-align: center; margin-top: 15px;"></p>
+    </div>
+
+    <!-- Подвал сайта -->
+    <p style="color: #444; font-size: 12px; margin-top: 70px;">© 2026 NEXORA Digital Creative Studio · nexora.studio.eu@gmail.com</p>
+
+    <!-- Скрипт отправки данных -->
+    <script>
+        const form = document.getElementById('orderForm');
+        const status = document.getElementById('statusMessage');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            btn.innerText = "Отправка...";
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    status.style.color = "#4ade80";
+                    status.innerText = "Заявка успешно отправлена! Мы скоро свяжемся с вами.";
+                    form.reset();
+                } else {
+                    status.style.color = "#f87171";
+                    status.innerText = "Ошибка отправки. Проверьте ключ доступа.";
+                }
+            })
+            .catch(error => {
+                status.style.color = "#f87171";
+                status.innerText = "Ошибка сети. Попробуйте позже.";
+            })
+            .finally(() => {
+                status.style.display = "block";
+                btn.innerText = "Отправить заявку";
+                btn.disabled = false;
+            });
+        });
+    </script>
+
+</body>
+</html>
+
